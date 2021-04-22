@@ -1,8 +1,8 @@
 # FLASK Tutorial 1 -- We show the bare bones code to get an app up and running
-#Working branch
+# Working branch
 # imports
-import os                 # os is used to get environment variables IP & PORT
-from flask import Flask   # Flask is the web app that we will customize
+import os                 #os is used to get environment variables IP & PORT
+from flask import Flask   #Flask is the web app that we will customize
 from flask import render_template
 from flask import request
 from werkzeug.utils import redirect
@@ -16,6 +16,7 @@ from forms import LoginForm
 from models import Comment as Comment
 from forms import RegisterForm, LoginForm, CommentForm
 import bcrypt
+
 app = Flask(__name__)     # create an app
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///flask_note_app.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -33,7 +34,7 @@ notes = {1: {'title': 'First note', 'text': 'This is my first note', 'date': '10
 
 @app.route('/notes')
 def get_notes():
-    
+
     if(session.get('user')):
         my_notes = db.session.query(Note).filter_by(user_id=session['user_id']).all()
         return render_template('notes.html', notes=my_notes, user=session['user'])
@@ -65,7 +66,7 @@ def login():
 
 @app.route('/notes/<note_id>')
 def get_note(note_id):
-    
+
     if session.get('user'):
 
         my_note = db.session.query(Note).filter_by(id=note_id,user_id=session['user_id']).one()
@@ -93,7 +94,7 @@ def update_note(note_id):
 
             return redirect(url_for('get_notes'))
         else:
-           
+
 
             # retrieve note from database
             my_note = db.session.query(Note).filter_by(id=note_id).one()
@@ -121,7 +122,7 @@ def delete_note(note_id):
         return redirect(url_for('get_notes'))
     else:
         return redirect(url_for('login'))
-    
+
 @app.route('/notes/new', methods=['GET', 'POST'])
 def new_note():
     # check method used for request
@@ -162,8 +163,9 @@ def register():
         # get entered user data
         first_name = request.form['firstname']
         last_name = request.form['lastname']
+        events_list = request.form['events']
         # create user model
-        new_user = User(first_name, last_name, request.form['email'], h_password)
+        new_user = User(first_name, last_name, request.form['email'], h_password, events_list)
         # add user to database and commit
         db.session.add(new_user)
         db.session.commit()
@@ -192,7 +194,7 @@ def new_comment(note_id):
 
     else:
         return redirect(url_for('login'))
-    
+
 # @app.route is a decorator. It gives the function "index" special powers.
 # In this case it makes it so anyone going to "your-url/" makes this function
 # get called. What it returns is what is shown as the web page

@@ -10,7 +10,7 @@ class RegisterForm(FlaskForm):
     class Meta:
         csrf = False
 
-    firstname = StringField('First Name', validators=[Length(1, 10)])
+    firstname = StringField('First Name', validators=[Length(1, 20)])
 
     lastname = StringField('Last Name', validators=[Length(1, 20)])
 
@@ -25,6 +25,10 @@ class RegisterForm(FlaskForm):
 
     confirmPassword = PasswordField('Confirm Password', validators=[
         Length(min=6, max=10)
+    ])
+
+    events = StringField('Events (Enter one event you are interested in)', [
+        DataRequired(message="Please enter a type of event you're interested in."),
     ])
     submit = SubmitField('Submit')
 

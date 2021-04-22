@@ -21,15 +21,17 @@ class User(db.Model):
     last_name = db.Column("last_name", db.String(100))
     email = db.Column("email", db.String(100))
     password = db.Column(db.String(255), nullable=False)
+    events = db.Column("events", db.String(255), nullable=False)
     registered_on = db.Column(db.DateTime, nullable=False)
     notes = db.relationship("Note", backref="user", lazy=True)
     comments = db.relationship("Comment", backref="user",lazy=True)
 
-    def __init__(self, first_name, last_name, email, password):
+    def __init__(self, first_name, last_name, email, password, events):
         self.first_name = first_name
         self.last_name = last_name
         self.email = email
         self.password = password
+        self.events = events
         self.registered_on = datetime.date.today()
 
 class Comment(db.Model):
