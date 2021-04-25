@@ -23,7 +23,7 @@ class User(db.Model):
     password = db.Column(db.String(255), nullable=False)
     events = db.Column("events", db.String(255), nullable=False)
     registered_on = db.Column(db.DateTime, nullable=False)
-    events = db.relationship("Event", backref="user", lazy=True)
+    # events = db.relationship("Event", backref="user", lazy=True)
     comments = db.relationship("Comment", backref="user",lazy=True)
 
     def __init__(self, first_name, last_name, email, password, events):
