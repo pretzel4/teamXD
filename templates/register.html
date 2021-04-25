@@ -80,6 +80,15 @@
                     </ul>
                     {% endif %}
                 </div>
+                <div class="form-field">{{ form.events.label }} {{ form.events }}
+                    {% if form.events.errors %}
+                    <ul class="errors">
+                        {% for error in form.events.errors %}
+                        <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
                 {{ form.submit }}
             </form>
 
