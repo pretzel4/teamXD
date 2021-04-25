@@ -12,14 +12,14 @@
         
         <nav>
             <a href="{{ url_for('index') }}"> Home</a> ||
-            <a href="{{ url_for('get_notes') }}"> My Notes</a> ||
-            <a href="{{ url_for('new_note') }}">Add Note</a>
+            <a href="{{ url_for('get_notes') }}"> My Events</a> ||
+            <a href="{{ url_for('new_note') }}">Add Event</a>
         </nav>
         <nav>
             <a href="{{ url_for('logout') }}">Logout</a>
         </nav>
 
-        <h1>Welcome {{user}} to the 49er Notes App!</h1>
+        <h1>Welcome {{user}} to the XD Events App!</h1>
         {% if note %}
             <form action="{{ url_for('update_note', note_id=note.id) }}" method="post"></form>
         {% else %}
