@@ -3,8 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="UNCC Notes App">
-        <title>UNCC Notes App - View your Note</title>
+        <meta name="description" content="XDevents">
+        <title>Event details</title>
         <!-- styles -->
         <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
     </head>
@@ -12,14 +12,14 @@
         
         <nav>
             <a href="{{ url_for('index') }}"> Home</a> ||
-            <a href="{{ url_for('get_notes') }}"> My Notes</a> ||
-            <a href="{{ url_for('new_note') }}">Add Note</a>
+            <a href="{{ url_for('get_events') }}"> My Events</a> ||
+            <a href="{{ url_for('new_event') }}">Add Event</a>
         </nav>
         <nav>
             <a href="{{ url_for('logout') }}">Logout</a>
         </nav>
-        <h1>Welcome {{user}} to the 49er Notes App!</h1>
-        <h1>Note details</h1>
+        <h1>Welcome {{user}} to the 49er Events App!</h1>
+        <h1>Event details</h1>
 
         <table>
             <tr>
@@ -28,22 +28,22 @@
                 <th>Date</th>
             </tr>
             <tr>
-                <td>{{ note.title }}</td>
-                <td>{{ note.text }}</td>
-                <td>{{ note.date }}</td>
+                <td>{{ event.title }}</td>
+                <td>{{ event.text }}</td>
+                <td>{{ event.date }}</td>
             </tr>
         </table>
-        {% if note.comments %}
-            {% if note.comments|length > 0 %}
+        {% if event.comments %}
+            {% if event.comments|length > 0 %}
                 <h2>Comments</h2>
                 <ul>
-                    {% for comment in note.comments %}
+                    {% for comment in event.comments %}
                         <li>{{ comment.content }}</li>
                     {% endfor %}
                 </ul>
             {% endif %}
         {% endif %}
-        <form action="{{ url_for('new_comment', note_id=note.id) }}" method="post">
+        <form action="{{ url_for('new_comment', event_id=event.id) }}" method="post">
             <div class="formwrapper">
                 <h2 class="title">Add a comment</h2>
                 <div class="form-field">

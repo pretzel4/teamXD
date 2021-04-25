@@ -19,7 +19,7 @@ class FlaskTest(unittest.TestCase):
         response = requests.get("http://127.0.0.1:5000/notes/1")
         statuscode = response.status_code
         self.assertEqual(statuscode, 200)
-        self.assertEqual('First Note' in response.text, True)
+        self.assertEqual('First Event' in response.text, True)
 
     def test_new(self):
         response = requests.get("http://127.0.0.1:5000/notes/new")

@@ -3,8 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="UNCC Notes App">
-        <title>UNCC Notes App - New Note</title>
+        <meta name="description" content="XDevents">
+        <title>New Event</title>
         <!-- styles -->
         <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
     </head>
@@ -12,36 +12,36 @@
         
         <nav>
             <a href="{{ url_for('index') }}"> Home</a> ||
-            <a href="{{ url_for('get_notes') }}"> My Notes</a> ||
-            <a href="{{ url_for('new_note') }}">Add Note</a>
+            <a href="{{ url_for('get_events') }}"> My Events</a> ||
+            <a href="{{ url_for('new_event') }}">Add Event</a>
         </nav>
         <nav>
             <a href="{{ url_for('logout') }}">Logout</a>
         </nav>
 
-        <h1>Welcome {{user}} to the 49er Notes App!</h1>
-        {% if note %}
-            <form action="{{ url_for('update_note', note_id=note.id) }}" method="post"></form>
+        <h1>Welcome {{user}} to the XDevents App!</h1>
+        {% if event %}
+            <form action="{{ url_for('update_event', event_id=event.id) }}" method="post"></form>
         {% else %}
         <form action="new" method="post">
         {% endif %}
             <p><label>Title </label></p>
-            <p><input type="text" name="title" value="{% if note %}{{note.title}} {% endif %}"/></p>
-            <p><label>Note </label></p>
+            <p><input type="text" name="title" value="{% if event %}{{event.title}} {% endif %}"/></p>
+            <p><label>Event </label></p>
             <p>
-                <textarea name="noteText"  rows="6" cols="0" >
-                    {% if note %}
-                        {{note.text}}
+                <textarea name="eventText"  rows="6" cols="0" >
+                    {% if event %}
+                        {{event.text}}
                     {% else %}
-                        Add your new note here ...
+                        Add your new event here ...
                     {% endif %}
                 </textarea>
             </p>
             <p>
-                {% if note %}
-                    <input type="submit" value="Update Note"/>
+                {% if event %}
+                    <input type="submit" value="Update Event"/>
                 {% else %}
-                    <input type="submit" value="Add Note"/>
+                    <input type="submit" value="Add Event"/>
                 {% endif %}
             </p>
         </form>
