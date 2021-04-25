@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='forms.css') }}">
+</head>
+	<body>
+	 <div class="navdiv">
+            
+            <nav>
+                <a href="{{ url_for('index') }}"> Home</a> ||
+                <a href="{{ url_for('get_notes') }}"> My Notes</a> ||
+                <a href="{{ url_for('new_note') }}">Add Note</a>
+            </nav>
+        
+        </div>
+		<h1> {{user}}</h1>
+	<nav>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </nav>
+		
+	</body>
+<html>

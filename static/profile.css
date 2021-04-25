@@ -1,0 +1,73 @@
+ form {
+    background: white;
+    width: 100%;
+  }
+  
+  .form-field {
+    position: relative;
+  }
+  
+  .title {
+    font-size: 1.7rem;
+    font-weight: 300;
+    border-bottom: 1px solid #dbe3ec;
+    padding: 5px;
+    margin: 0 0 40px 0;
+  }
+ 
+ .formwrapper {
+    position: relative;
+    background: white;
+    width: 350px;
+    box-shadow: 0 0 5px rgba(65, 67, 144, 0.1);
+    padding: 10px;
+  }
+  .formwrapperright {
+    position: center;
+	left: 20%;
+    background: white;
+    width: 350px;
+    box-shadow: 0 0 5px rgba(65, 67, 144, 0.1);
+    padding: 10px;
+  }
+  
+  .sidewrapper {
+    position: relative;
+    background: white;
+    width: 280px;
+	min-height:600px;
+    box-shadow: 0 0 5px rgba(65, 67, 144, 0.1);
+    padding: 10px;
+  }
+  
+  body{
+	  margin-top: 20px;
+	  background-color:white;
+	  
+  }
+  .main{
+	  padding:15px;
+	  font-family: Arial,Helvetica,sans-serif;
+  }
+  .sidebar{
+	  background-color: #3682f3;
+	  color:white;
+	  width:280px;
+	  min-height:400px;
+  }
+  .sidebar a{
+	  margin-left: 10px;
+	  display: block;
+	  color:white;
+	  padding-bottom:10px;
+	  font-size:15px;
+	  text-decoration:none;
+  }
+  .card{
+	  position:relative;
+	  display:flex;
+	  flex-direction:column;
+  }
+  .content{
+	  background-color:white;
+  }
