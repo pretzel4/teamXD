@@ -5,7 +5,7 @@ from wtforms import ValidationError
 from models import User
 from database import db
 
-
+# class that deals with form attributes in register template
 class RegisterForm(FlaskForm):
     class Meta:
         csrf = False
@@ -36,7 +36,7 @@ class RegisterForm(FlaskForm):
         if db.session.query(User).filter_by(email=field.data).count() != 0:
             raise ValidationError('Username already in use.')
 
-
+# class that deals with form attributes in login template
 class LoginForm(FlaskForm):
     class Meta:
         csrf = False
@@ -54,7 +54,7 @@ class LoginForm(FlaskForm):
         if db.session.query(User).filter_by(email=field.data).count() == 0:
             raise ValidationError('Incorrect username or password.')
 
-
+# class that deals with form attributes in comment template
 class CommentForm(FlaskForm):
     class Meta:
         csrf = False

@@ -1,6 +1,7 @@
 from database import db
 import datetime
 
+# Model object that handles event attributes
 class Event(db.Model):
     id = db.Column("id", db.Integer, primary_key=True)
     title = db.Column("title", db.String(200))
@@ -15,6 +16,7 @@ class Event(db.Model):
         self.date = date
         self.user_id = user_id
 
+# Model object that deal with user attributes
 class User(db.Model):
     id = db.Column("id", db.Integer, primary_key=True)
     first_name = db.Column("first_name", db.String(100))
@@ -34,6 +36,8 @@ class User(db.Model):
         self.events = events
         self.registered_on = datetime.date.today()
 
+# model object that deals with comments of events
+# contains foreign keys for event and user
 class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     date_posted = db.Column(db.DateTime, nullable=False)
