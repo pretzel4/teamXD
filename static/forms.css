@@ -9,6 +9,14 @@ form {
     color: blue;
   }
   
+  .column1
+  .column2
+  .column3
+  .column4
+  {
+	  width: 190px;
+	  
+  }
   .title {
     font-size: 1.7rem;
     font-weight: 300;
@@ -23,6 +31,16 @@ form {
     width: 350px;
     box-shadow: 0 0 5px rgba(65, 67, 144, 0.1);
     padding: 10px;
+  }
+  
+    .centered {
+  display: flex;
+  align-items: center;
+  flex-direction: column; 
+  justify-content: center;
+  width: 100%;
+  min-height: 100%;
+  padding: 20px;
   }
   
   label {
@@ -66,7 +84,7 @@ form {
   }
   
   input[type="submit"] {
-    background: blue;
+    background: #3682f3;
     border: 0;
     color: white;
     border-radius: 2px;
@@ -108,12 +126,15 @@ form {
     margin: auto;
   }
   
-  i {
-    position: absolute;
-    margin: auto;
-    top: 4px;
-    bottom: 0;
-    right: 16px;
-    height: fit-content;
-    color: grey;
+   table {
+	   border-spacing: 1; 
+  border-collapse: collapse; 
+  background:white;
+  border-radius:6px;
+  overflow:hidden;
+  max-width:800px; 
+  width:100%;
+  margin:0 auto;
+  position:relative;
+
   }

@@ -2,9 +2,11 @@ body {
     padding: 30px 30px;
     }
 h1{
-    color:blue;
+    color:Black;
+	
 }
 h2{
     color:white;
-    background:blue;
+	background:#3682f3;
+	
 }
