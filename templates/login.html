@@ -14,46 +14,46 @@
                 <a href="{{ url_for('new_event') }}">Add Event</a>
             </nav>
         </div>
-        <div class="navdiv">
-            {% if user %}
-            <nav>
-                <a href="{{ url_for('logout') }}">Logout</a>
-            </nav>
-            {% else %}
-                <nav>
-                    <a href="{{ url_for('login') }}">Sign In</a> ||
-                    <a href="{{ url_for('register') }}">Register</a>
-                </nav>
-            {% endif %}
-        </div>
-        <div>
-            <h1>Welcome to XDevents!</h1>
+       <div class="centered">
+        
 
-            <div class="formwrapper">
-                <h2 class="title">Sign in</h2>
-                <form method="POST" action="/login">
-                    <div class="form-field">{{ form.email.label }} {{ form.email }}
-                        {% if form.email.errors %}
-                        <ul class="errors">
-                            {% for error in form.email.errors %}
-                            <li>{{ error }}</li>
-                            {% endfor %}
-                        </ul>
-                        {% endif %}
-                    </div>
-                    <div class="form-field">{{ form.password.label }} {{ form.password }}
-                        {% if form.password.errors %}
-                        <ul class="errors">
-                            {% for error in form.password.errors %}
-                            <li>{{ error }}</li>
-                            {% endfor %}
-                        </ul>
-                        {% endif %}
-                    </div>
-                    {{ form.submit }}
-                </form>
-            </div>
+        <h1>Welcome {% if user %}{{user}}{% endif %} to</h1>
+		<div class="row">
+		<h1>XDevents!</h1>
+		</div>
+		</div>
+		
+       
+		<div class="centered">
+        <div class="formwrapper">
+            <h2 class="title">Sign In</h2>
+            <form method="POST" action="/login">
+                <div class="form-field">{{ form.email.label }} {{ form.email }}
+                    {% if form.email.errors %}
+                    <ul class="errors">
+                        {% for error in form.email.errors %}
+                        <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
+                <div class="form-field">{{ form.password.label }} {{ form.password }}
+                    {% if form.password.errors %}
+                    <ul class="errors">
+                        {% for error in form.password.errors %}
+                        <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
+                {{ form.submit }}
+            </form>
+			<div id="formfooter">
+			Don't Have an account? <a href="{{ url_for('register') }}">Register Now</a> 
+			</div>
         </div>
+		</div>
+        
         
     </body>
 </html>

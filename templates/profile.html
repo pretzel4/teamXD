@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Profile</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='forms.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='profile.css') }}">
 </head>
 	<body>
 	 <div class="navdiv">
@@ -15,10 +15,53 @@
             </nav>
         
         </div>
-		<h1> {{user}}</h1>
-	<nav>
+		<nav>
             <a href="{{ url_for('logout') }}">Logout</a>
         </nav>
-		
+		<div class="main">
+        <h2>My Account</h2>
+        <div class="card">
+            <div class="card-body">
+                <i class="fa fa-pen fa-xs edit"></i>
+                <table>
+                    <tbody>
+					 
+
+                        <tr>
+                            <td>Name</td>
+                            <td>:</td>
+                            <td> {{user.first_name}} </td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>:</td>
+                            <td>{{ user.email }}</td>
+                        </tr>
+                        <tr>
+                            <td>Address</td>
+                            <td>:</td>
+                            <td>Bali, Indonesia</td>
+                        </tr>
+                        <tr>
+                            <td>Interests</td>
+                            <td>:</td>
+                            <td>Diving, Reading Book</td>
+                        </tr>
+                        <tr>
+                            <td>Job</td>
+                            <td>:</td>
+                            <td>Web Developer</td>
+                        </tr>
+                        <tr>
+                            <td>Skill</td>
+                            <td>:</td>
+                            <td>PHP, HTML, CSS, Java</td>
+                        </tr>
+						
+                    </tbody>
+                </table>
+            </div>
+        </div>
+		</div>
 	</body>
 <html>
