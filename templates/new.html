@@ -22,9 +22,9 @@
 
         <h1>Welcome {{user}} to the XDevents App!</h1>
         {% if event %}
-            <form action="{{ url_for('update_event', event_id=event.id) }}" method="post"></form>
+            <form action="{{ url_for('update_event', event_id=event.id) }}" method="post">
         {% else %}
-        <form action="new" method="post">
+            <form action="new" method="post">
         {% endif %}
             <p><label>Title </label></p>
             <p><input type="text" name="title" value="{% if event %}{{event.title}} {% endif %}"/></p>

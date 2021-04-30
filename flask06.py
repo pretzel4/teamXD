@@ -83,7 +83,7 @@ def update_event(event_id):
             title = request.form['title']
             # get event data
             text = request.form['eventText']
-            event = db.session.query(Event).filter_by(id=event_id)
+            event = db.session.query(Event).filter_by(id=event_id).one()
             # update event data
             event.title = title
             event.text = text
