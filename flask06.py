@@ -207,9 +207,11 @@ def index():
 
 @app.route('/profile')
 def profile():
-     if session.get('user'):
-        return render_template('profile.html', user=session['user'])
-        return redirect(url_for('login'))
+    if session.get('user'):
+        b = session["user"]
+        my_user = db.session.query(User).filter_by(id=session['user_id']).one()
+        return render_template('profile.html', user=my_user)
+    return redirect(url_for('login'))
 
 
 

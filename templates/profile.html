@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='profile.css') }}">
 </head>
 	<body>
-	 <div class="navdiv">
-            
+    
+	<div class="navdiv">
             <nav>
                 <a href="{{ url_for('index') }}"> Home</a> ||
                 <a href="{{ url_for('get_events') }}"> My Events</a> ||
@@ -26,11 +26,15 @@
                 <table>
                     <tbody>
 					 
-
                         <tr>
-                            <td>Name</td>
+                            <td>First Name</td>
                             <td>:</td>
-                            <td> {{user.first_name}} </td>
+                            <td>{{user.first_name}}</td>
+                        </tr>
+                        <tr>
+                            <td>Last Name</td>
+                            <td>:</td>
+                            <td>{{user.last_name}}</td>
                         </tr>
                         <tr>
                             <td>Email</td>
@@ -38,25 +42,11 @@
                             <td>{{ user.email }}</td>
                         </tr>
                         <tr>
-                            <td>Address</td>
+                            <td>Favorite Event</td>
                             <td>:</td>
-                            <td>Bali, Indonesia</td>
+                            <td>{{ user.events }}</td>
                         </tr>
-                        <tr>
-                            <td>Interests</td>
-                            <td>:</td>
-                            <td>Diving, Reading Book</td>
-                        </tr>
-                        <tr>
-                            <td>Job</td>
-                            <td>:</td>
-                            <td>Web Developer</td>
-                        </tr>
-                        <tr>
-                            <td>Skill</td>
-                            <td>:</td>
-                            <td>PHP, HTML, CSS, Java</td>
-                        </tr>
+                        
 						
                     </tbody>
                 </table>
